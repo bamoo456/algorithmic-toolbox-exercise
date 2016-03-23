@@ -19,6 +19,8 @@ func maximumPair(base string, pairs []string) (int64, int64) {
 				baseNum = maxNum
 			}
 			maxNum = num
+		} else if num > baseNum {
+			baseNum = num
 		}
 	}
 	return baseNum, maxNum

@@ -9,40 +9,33 @@ import (
 )
 
 // find the maximum pair string
-func maximumPair(base string, pairs []string) (int64, int64) {
-	var maxNum int64
-	baseNum, _ := strconv.ParseInt(base, 10, 32)
-	for _, numString := range pairs {
+func maximumPair(sequences []string) (int64, int64) {
+	var max1, max2 int64
+	for _, numString := range sequences {
 		num, _ := strconv.ParseInt(numString, 10, 32)
-		if num > maxNum {
-			if maxNum > baseNum {
-				baseNum = maxNum
+		if num > max1 {
+			if max1 > max2 {
+				max2 = max1
 			}
-			maxNum = num
-		} else if num > baseNum {
-			baseNum = num
+			max1 = num
+		} else if num > max2 {
+			max2 = num
 		}
 	}
-	return baseNum, maxNum
+	return max2, max1
 }
 
 func main() {
 	reader := bufio.NewReader(os.Stdin)
-	fmt.Println("please enter your base number: ")
-	baseNum, _ := reader.ReadString('\n')
-	baseNum = baseNum[:len(baseNum)-1]
 
-	fmt.Println("The baseNum is ", baseNum)
+	fmt.Println("please enter your sequence numbers: ")
+	sequences, _ := reader.ReadString('\n')
+	sequences = sequences[:len(sequences)-1]
 
-	fmt.Println("please enter your pair numbers: ")
-	pairStrings, _ := reader.ReadString('\n')
-	pairStrings = pairStrings[:len(pairStrings)-1]
+	sequenceNums := strings.Split(sequences, " ")
 
-	pairNums := strings.Split(pairStrings, " ")
+	fmt.Println("The sequence numbers are", sequenceNums)
 
-	fmt.Println("The pair strings are", pairNums)
-
-	v1, v2 := maximumPair(baseNum, pairNums)
+	v1, v2 := maximumPair(sequenceNums)
 	fmt.Println("The multiple result of maximum pair is :", v1*v2)
-
 }

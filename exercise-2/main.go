@@ -5,6 +5,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -16,6 +17,10 @@ func main() {
 	sequences = sequences[:len(sequences)-1]
 
 	sequenceNums := strings.Split(sequences, " ")
+
+	for i, v := range sequenceNums {
+		sequenceNums[i], _ = strconv.ParseInt(numString, 10, 32)
+	}
 
 	fmt.Println("The sequence numbers are", sequenceNums)
 

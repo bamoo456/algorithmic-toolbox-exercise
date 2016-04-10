@@ -17,6 +17,8 @@ func main() {
 	if err != nil {
 		fmt.Println("Your input value can not be identified!")
 		fmt.Println(err)
+	} else if nth > 45 {
+		fmt.Println("nth is not supported to calculate !")
 	} else {
 		var fibNum int64 = libs.GetNthFibonacci(nth)
 		fmt.Printf("The %d th fibonacci number is %d !\n", nth, fibNum)

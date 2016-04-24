@@ -13,7 +13,7 @@ Task. Given two integers n and m, output Fn mod m (that is, the
 remainder of Fn when divided by m).
 Input Format. The input consists of two integers n and m given on the
 same line (separated by a space).
-Constraints. 1 ≤ n ≤ 1018, 2 ≤ m ≤ 105
+Constraints. 1 ≤ n ≤ 10^18, 2 ≤ m ≤ 10^5
 .
 Output Format. Output Fn mod m.
 Time Limits. C: 1 sec, C++: 1 sec, Java: 1.5 sec, Python: 5 sec.
